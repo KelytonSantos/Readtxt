@@ -1,5 +1,8 @@
 package com.ped.estruturaPdf;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Candidato {
     private Integer id;
     private String name;
@@ -8,17 +11,19 @@ public class Candidato {
     private Float ptsEsp;
     private Float totalPts;
 
+    List<Candidato> candidatos = new ArrayList<>();
+
     public Candidato() {
 
     }
 
-    public Candidato(Integer id, String name, Float ptsDout, Float ptsMest, Float ptsEsp, Float totalPts) {
-        this.id = id;
+    public Candidato(String id, String name, String ptsDout, String ptsMest, String ptsEsp, String totalPts) {
+        this.id = Integer.parseInt(id);
         this.name = name;
-        this.ptsDout = ptsDout;
-        this.ptsMest = ptsMest;
-        this.ptsEsp = ptsEsp;
-        this.totalPts = totalPts;
+        this.ptsDout = Float.parseFloat(ptsDout.replace(",", "."));
+        this.ptsMest = Float.parseFloat(ptsMest.replace(",", "."));
+        this.ptsEsp = Float.parseFloat(ptsEsp.replace(",", "."));
+        this.totalPts = Float.parseFloat(totalPts.replace(",", "."));
     }
 
     public Integer getId() {
@@ -69,4 +74,12 @@ public class Candidato {
         this.totalPts = totalPts;
     }
 
+    public List<Candidato> getCandidato() {
+        return candidatos;
+    }
+
+    public void setCandidatoToList(Candidato candidatos) {
+        this.candidatos.add(candidatos);
+        this.candidatos.sort((c1, c2) -> Float.compare(c2.getTotalPts(), c1.getTotalPts()));
+    }
 }

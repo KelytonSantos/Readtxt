@@ -40,11 +40,9 @@ public class Main {
 
                     System.out.println("id: " + id + " nome: " + name + " doutorado: " + dout + " mestrado: " + mest
                             + " especializacao: " + esp + " total: " + pontos);
-                    /*
-                     * Candidato candidato = new Candidato(Integer.parseInt(id), name,
-                     * Float.parseFloat(dout), Float.parseFloat(mest), Float.parseFloat(esp),
-                     * Float.parseFloat(pontos));
-                     */
+
+                    Candidato candidato = new Candidato(id, name, dout, mest, esp, pontos);
+                    candidato.setCandidatoToList(candidato);
                 }
             }
 
