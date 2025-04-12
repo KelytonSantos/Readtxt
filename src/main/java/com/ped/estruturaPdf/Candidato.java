@@ -70,9 +70,17 @@ public class Candidato {
         this.totalPts = totalPts;
     }
 
+    public Integer getPosition() {
+        return position;
+    }
+
+    public void setPosition(Integer position) {
+        this.position = position;
+    }
+
     @Override
     public String toString() {
-        return "id: " + getId() + " nome: " + getName() + " pontuação: " + getTotalPts();
+        return "Posição: " + position + " | ID: " + id + ", Nome: " + name + ", Pontuação Total: " + totalPts;
     }
 
 }

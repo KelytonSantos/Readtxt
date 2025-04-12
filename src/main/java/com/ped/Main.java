@@ -15,7 +15,6 @@ public class Main {
             File arquivo = new File("/home/lucas/Downloads/Lista-pedag.txt");
             Scanner scanner = new Scanner(arquivo);
             List<Candidato> candidatos = new ArrayList<>();
-
             // pula a primeira linha (cabeçalho)
             if (scanner.hasNextLine()) {
                 scanner.nextLine();
@@ -55,6 +54,10 @@ public class Main {
             }
 
             candidatos.sort((c1, c2) -> Float.compare(c2.getTotalPts(), c1.getTotalPts()));
+
+            for (int i = 0; i < candidatos.size(); i++) {
+                candidatos.get(i).setPosition(i + 1); // A posição começa de 1
+            }
 
             FileWriter writer = new FileWriter("/home/lucas/Downloads/saida.txt");
             for (Candidato c : candidatos) {
