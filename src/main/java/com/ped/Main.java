@@ -2,6 +2,8 @@ package com.ped;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import com.ped.estruturaPdf.Candidato;
@@ -11,6 +13,7 @@ public class Main {
         try {
             File arquivo = new File("/home/lucas/Downloads/Lista-pedag.txt");
             Scanner scanner = new Scanner(arquivo);
+            List<Candidato> candidatos = new ArrayList<>();
 
             // pula a primeira linha (cabeçalho)
             if (scanner.hasNextLine()) {
@@ -36,17 +39,24 @@ public class Main {
                     String lastName = colunas[3];
                     String id = colunas[0];
 
-                    String name = firstName + secondName + lastName;
+                    String name = firstName + " " + secondName + " " + lastName;
 
-                    System.out.println("id: " + id + " nome: " + name + " doutorado: " + dout + " mestrado: " + mest
-                            + " especializacao: " + esp + " total: " + pontos);
+                    /*
+                     * System.out.println("id: " + id + " nome: " + name + " doutorado: " + dout +
+                     * " mestrado: " + mest
+                     * + " especializacao: " + esp + " total: " + pontos);
+                     */
 
                     Candidato candidato = new Candidato(id, name, dout, mest, esp, pontos);
-                    candidato.setCandidatoToList(candidato);
+                    candidatos.add(candidato);
                 }
+
             }
 
+            candidatos.sort((c1, c2) -> Float.compare(c2.getTotalPts(), c1.getTotalPts()));
+
             scanner.close();
+
         } catch (FileNotFoundException e) {
             System.err.println("Arquivo não encontrado: " + e.getMessage());
         }

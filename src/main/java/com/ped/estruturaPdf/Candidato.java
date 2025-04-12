@@ -1,8 +1,5 @@
 package com.ped.estruturaPdf;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Candidato {
     private Integer id;
     private String name;
@@ -10,8 +7,6 @@ public class Candidato {
     private Float ptsMest;
     private Float ptsEsp;
     private Float totalPts;
-
-    List<Candidato> candidatos = new ArrayList<>();
 
     public Candidato() {
 
@@ -74,12 +69,9 @@ public class Candidato {
         this.totalPts = totalPts;
     }
 
-    public List<Candidato> getCandidato() {
-        return candidatos;
+    @Override
+    public String toString() {
+        return "id: " + getId() + " nome: " + getName() + " pontuação: " + getTotalPts();
     }
 
-    public void setCandidatoToList(Candidato candidatos) {
-        this.candidatos.add(candidatos);
-        this.candidatos.sort((c1, c2) -> Float.compare(c2.getTotalPts(), c1.getTotalPts()));
-    }
 }
