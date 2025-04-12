@@ -1,7 +1,8 @@
 package com.ped;
 
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -55,9 +56,14 @@ public class Main {
 
             candidatos.sort((c1, c2) -> Float.compare(c2.getTotalPts(), c1.getTotalPts()));
 
+            FileWriter writer = new FileWriter("/home/lucas/Downloads/saida.txt");
+            for (Candidato c : candidatos) {
+                writer.write(c.toString() + "\n");
+            }
+            writer.close();
             scanner.close();
 
-        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
             System.err.println("Arquivo não encontrado: " + e.getMessage());
         }
     }

@@ -7,6 +7,7 @@ public class Candidato {
     private Float ptsMest;
     private Float ptsEsp;
     private Float totalPts;
+    private Integer position;
 
     public Candidato() {
 
