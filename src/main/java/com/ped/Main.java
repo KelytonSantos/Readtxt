@@ -1,5 +1,7 @@
 package com.ped;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,5 +20,16 @@ public class Main {
         ProvaAvaliationService prov = new ProvaAvaliationService();
         prov.createAvaliationProva("/home/lucas/Downloads/provaR.txt", candidatos);
 
+        try {
+            FileWriter writer = new FileWriter("/home/lucas/Downloads/saida.txt");
+
+            for (Candidato c : candidatos.values()) {
+                writer.write(c.toString() + "\n");
+            }
+            writer.close();
+
+        } catch (IOException e) {
+            System.err.println("Erro ao salvar arquivo: " + e.getMessage());
+        }
     }
 }

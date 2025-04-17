@@ -49,13 +49,17 @@ public class TituloAvaliationService {
                     if (!exist) {
                         candidato.setId(id);
                         candidato.setName(name);
+                        candidato.setPtsEsp(esp);
+                        candidato.setPtsMest(mest);
+                        candidato.setPtsDout(dout);
+                        candidato.setTotalPtsTitulo(pontos);
                     } else {
                         candidato.setPtsEsp(esp);
                         candidato.setPtsMest(mest);
                         candidato.setPtsDout(dout);
                         candidato.setTotalPtsTitulo(pontos);
                     }
-
+                    candidatosMap.put(id, candidato);
                 }
 
             }

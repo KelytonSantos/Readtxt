@@ -47,6 +47,11 @@ public class ProvaAvaliationService {
                     if (!exist) {
                         candidato.setId(id);
                         candidato.setName(name);
+                        candidato.setPtsLpfs(lpfs);
+                        candidato.setPtsRlfs(rlfs);
+                        candidato.setPtsCped(cped);
+                        candidato.setPtsCepe(cepe);
+                        candidato.setTotalPtsProva(provaPts);
                     } else {
                         candidato.setPtsLpfs(lpfs);
                         candidato.setPtsRlfs(rlfs);

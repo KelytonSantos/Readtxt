@@ -134,7 +134,17 @@ public class Candidato {
 
     @Override
     public String toString() {
-        return "Posição: " + position + " | ID: " + id + ", Nome: " + name + ", Pontuação Total: " + totalPts;
+        return "ID: " + id +
+                ", Nome: " + name +
+                ", Doutorado: " + ptsDout +
+                ", Mestrado: " + ptsMest +
+                ", Especialização: " + ptsEsp +
+                ", Total Títulos: " + totalPtsTitulo +
+                ", LPFS: " + ptsLpfs +
+                ", RLFS: " + ptsRlfs +
+                ", CPED: " + ptsCpde +
+                ", CEPE: " + ptsCepe +
+                ", Total Prova: " + totalPtsProva;
     }
 
     public String printProvaAvaliation() {
