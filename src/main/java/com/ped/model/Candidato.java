@@ -1,4 +1,4 @@
-package com.ped.estruturaPdf;
+package com.ped.model;
 
 public class Candidato {
     private Integer id;
@@ -8,10 +8,11 @@ public class Candidato {
     private Float ptsEsp;
     private Float totalPts;
     private Integer position;
-    private Float ptsLpfs; //língua portuguesa
-    private Float ptsRlfs // raciocinio logico matematico
-    private Float ptsCpde // conhecimento pedagógico
-    private Float ptsCepe// conhecimento especifico
+    private Float ptsLpfs; // língua portuguesa
+    private Float ptsRlfs; // raciocinio logico matematico
+    private Float ptsCpde; // conhecimento pedagógico
+    private Float ptsCepe;// conhecimento especifico
+
     public Candidato() {
 
     }
