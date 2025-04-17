@@ -25,7 +25,6 @@ public class Candidato {
         this.ptsDout = Float.parseFloat(ptsDout.replace(",", "."));
         this.ptsMest = Float.parseFloat(ptsMest.replace(",", "."));
         this.ptsEsp = Float.parseFloat(ptsEsp.replace(",", "."));
-        this.totalPts = Float.parseFloat(totalPts.replace(",", "."));
     }
 
     public Integer getId() {
@@ -72,8 +71,18 @@ public class Candidato {
         return totalPts;
     }
 
-    public void setTotalPts(String totalPts) {
-        this.totalPts = Float.parseFloat(totalPts.replace(",", "."));
+    public void setTotalPoints() {
+        if (this.totalPtsProva == null || this.totalPtsTitulo == null) {
+            this.totalPtsProva = 0.0f;
+            this.totalPtsTitulo = 0.0f;
+        }
+        this.totalPts = this.totalPtsProva + this.totalPtsTitulo;
+    }
+
+    public Float getTotalPoints() {
+        if (this.totalPts == null)
+            this.totalPts = 0.0f;
+        return this.totalPts;
     }
 
     public Integer getPosition() {
@@ -134,7 +143,7 @@ public class Candidato {
 
     @Override
     public String toString() {
-        return "ID: " + id +
+        return "POSIÇÂO: " + position + ", ID: " + id +
                 ", Nome: " + name +
                 ", Doutorado: " + ptsDout +
                 ", Mestrado: " + ptsMest +
@@ -144,7 +153,10 @@ public class Candidato {
                 ", RLFS: " + ptsRlfs +
                 ", CPED: " + ptsCpde +
                 ", CEPE: " + ptsCepe +
-                ", Total Prova: " + totalPtsProva;
+                ", Total Prova: " + totalPtsProva +
+                ", Total Titulo: " + totalPtsTitulo +
+                ", Total Total: " + totalPts;
+
     }
 
     public String printProvaAvaliation() {

@@ -2,7 +2,9 @@ package com.ped;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.ped.model.Candidato;
@@ -20,11 +22,22 @@ public class Main {
         ProvaAvaliationService prov = new ProvaAvaliationService();
         prov.createAvaliationProva("/home/lucas/Downloads/provaR.txt", candidatos);
 
-        try {
-            FileWriter writer = new FileWriter("/home/lucas/Downloads/saida.txt");
+        List<Candidato> listaCandidatos = new ArrayList<>(candidatos.values());
+        for (Candidato c : listaCandidatos) {
+            c.setTotalPoints();
+        }
+        listaCandidatos.sort((c1, c2) -> Float.compare(c2.getTotalPoints(), c1.getTotalPoints()));
 
-            for (Candidato c : candidatos.values()) {
-                writer.write(c.toString() + "\n");
+        int pos = 1;
+        for (Candidato c : listaCandidatos) {
+            c.setPosition(pos++);
+        }
+
+        try {
+            FileWriter writer = new FileWriter("/home/lucas/Downloads/out.txt");
+
+            for (Candidato c : listaCandidatos) {
+                writer.write(c.toString() + "\n\n");
             }
             writer.close();
 
