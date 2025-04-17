@@ -35,7 +35,7 @@ public class TituloAvaliationService {
                 // .split("\\s+") dividi a linha em pedaços
                 // (\\s+) divide onde tiver 1 ou mais espaços/tabs
 
-                if (colunas.length >= 8) { // deve ter pelo menos 6 colunas
+                if (colunas.length >= 8) {
                     String pontos = colunas[colunas.length - 1]; // última coluna
                     String esp = colunas[colunas.length - 2];
                     String mest = colunas[colunas.length - 3];

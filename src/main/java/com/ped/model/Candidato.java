@@ -12,6 +12,8 @@ public class Candidato {
     private Float ptsRlfs; // raciocinio logico matematico
     private Float ptsCpde; // conhecimento pedagógico
     private Float ptsCepe;// conhecimento especifico
+    private Float totalPtsTitulo;
+    private Float totalPtsProva;
 
     public Candidato() {
 
@@ -54,64 +56,80 @@ public class Candidato {
         return ptsMest;
     }
 
-    public void setPtsMest(Float ptsMest) {
-        this.ptsMest = ptsMest;
+    public void setPtsMest(String ptsMest) {
+        this.ptsMest = Float.parseFloat(ptsMest.replaceAll(",", "."));
     }
 
     public Float getPtsEsp() {
         return ptsEsp;
     }
 
-    public void setPtsEsp(Float ptsEsp) {
-        this.ptsEsp = ptsEsp;
+    public void setPtsEsp(String ptsEsp) {
+        this.ptsEsp = Float.parseFloat(ptsEsp.replaceAll(",", "."));
     }
 
     public Float getTotalPts() {
         return totalPts;
     }
 
-    public void setTotalPts(Float totalPts) {
-        this.totalPts = totalPts;
+    public void setTotalPts(String totalPts) {
+        this.totalPts = Float.parseFloat(totalPts.replace(",", "."));
     }
 
     public Integer getPosition() {
         return position;
     }
 
-    public void setPosition(Integer position) {
-        this.position = position;
+    public void setPosition(String position) {
+        this.position = Integer.parseInt(position);
     }
 
     public Float getPtsLpfs() {
         return ptsLpfs;
     }
 
-    public void setPtsLpfs(Float ptsLpfs) {
-        this.ptsLpfs = ptsLpfs;
+    public void setPtsLpfs(String ptsLpfs) {
+        this.ptsLpfs = Float.parseFloat(ptsLpfs.replaceAll(",", "."));
     }
 
     public Float getPtsRlfs() {
         return ptsRlfs;
     }
 
-    public void setPtsRlfs(Float ptsRlfs) {
-        this.ptsRlfs = ptsRlfs;
+    public void setPtsRlfs(String ptsRlfs) {
+        this.ptsRlfs = Float.parseFloat(ptsRlfs.replaceAll(",", "."));
     }
 
     public Float getPtsCpde() {
         return ptsCpde;
     }
 
-    public void setPtsCpde(Float ptsCpde) {
-        this.ptsCpde = ptsCpde;
+    public void setPtsCpde(String ptsCpde) {
+        this.ptsCpde = Float.parseFloat(ptsCpde.replaceAll(",", "."));
     }
 
     public Float getPtsCepe() {
         return ptsCepe;
     }
 
-    public void setPtsCepe(Float ptsCepe) {
-        this.ptsCepe = ptsCepe;
+    public void setPtsCepe(String ptsCepe) {
+        this.ptsCepe = Float.parseFloat(ptsCepe.replaceAll(",", "."));
+    }
+
+    public Float getTotalPtsTitulo() {
+        return totalPtsTitulo;
+    }
+
+    public void setTotalPtsTitulo(String totalPtsTitulo) {
+        this.totalPtsTitulo = Float.parseFloat(totalPtsTitulo.replaceAll(",", "."));
+    }
+
+    public Float getTotalPtsProva() {
+        return totalPtsProva;
+    }
+
+    public void setTotalPtsProva(String totalPtsProva) {
+        this.totalPtsProva = Float.parseFloat(totalPtsProva.replaceAll(",", "."));
     }
 
     @Override
