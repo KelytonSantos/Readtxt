@@ -12,7 +12,8 @@ import com.ped.estruturaPdf.Candidato;
 public class Main {
     public static void main(String[] args) {
         try {
-            File arquivo = new File("/home/lucas/Downloads/Lista-pedag.txt");
+            File arquivo = new File("/home/lucas/Downloads/tituloR.txt");
+
             Scanner scanner = new Scanner(arquivo);
             List<Candidato> candidatos = new ArrayList<>();
             // pula a primeira linha (cabeçalho)
