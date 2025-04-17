@@ -80,8 +80,8 @@ public class Candidato {
         return position;
     }
 
-    public void setPosition(String position) {
-        this.position = Integer.parseInt(position);
+    public void setPosition(Integer position) {
+        this.position = position;
     }
 
     public Float getPtsLpfs() {
@@ -104,7 +104,7 @@ public class Candidato {
         return ptsCpde;
     }
 
-    public void setPtsCpde(String ptsCpde) {
+    public void setPtsCped(String ptsCpde) {
         this.ptsCpde = Float.parseFloat(ptsCpde.replaceAll(",", "."));
     }
 

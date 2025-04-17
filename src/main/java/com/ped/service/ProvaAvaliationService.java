@@ -25,14 +25,30 @@ public class ProvaAvaliationService {
                     String firstName = colunas[1];
                     String secondName = colunas[2];
                     String lastName = colunas[3];
-                    String
+                    // String typeInscription = colunas[colunas.length - 9];
+                    String lpfs = colunas[colunas.length - 8];
+                    String rlfs = colunas[colunas.length - 7];
+                    String cped = colunas[colunas.length - 6];
+                    String cepe = colunas[colunas.length - 5];
+                    String provaPts = colunas[colunas.length - 4];
+
                     String name = firstName + " " + secondName + " " + lastName;
                     Candidato candidato = candidatosMap.getOrDefault(id, new Candidato());// busca um candidato, caso
                                                                                           // exista ele retorna o obj,
                                                                                           // caso n exista ele cria um
                                                                                           // novo obj(mas n salva no
                                                                                           // map)
-                    candidato.setId(id);
+                    boolean exist = candidatosMap.containsKey(id);
+                    if (!exist) {
+                        candidato.setId(id);
+                        candidato.setName(name);
+                    } else {
+                        candidato.setPtsLpfs(lpfs);
+                        candidato.setPtsRlfs(rlfs);
+                        candidato.setPtsCped(cped);
+                        candidato.setPtsCepe(cepe);
+                        candidato.setTotalPtsProva(provaPts);
+                    }
                 }
 
             }
