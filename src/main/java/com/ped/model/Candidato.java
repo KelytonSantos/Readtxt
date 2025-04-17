@@ -82,6 +82,38 @@ public class Candidato {
         this.position = position;
     }
 
+    public Float getPtsLpfs() {
+        return ptsLpfs;
+    }
+
+    public void setPtsLpfs(Float ptsLpfs) {
+        this.ptsLpfs = ptsLpfs;
+    }
+
+    public Float getPtsRlfs() {
+        return ptsRlfs;
+    }
+
+    public void setPtsRlfs(Float ptsRlfs) {
+        this.ptsRlfs = ptsRlfs;
+    }
+
+    public Float getPtsCpde() {
+        return ptsCpde;
+    }
+
+    public void setPtsCpde(Float ptsCpde) {
+        this.ptsCpde = ptsCpde;
+    }
+
+    public Float getPtsCepe() {
+        return ptsCepe;
+    }
+
+    public void setPtsCepe(Float ptsCepe) {
+        this.ptsCepe = ptsCepe;
+    }
+
     @Override
     public String toString() {
         return "Posição: " + position + " | ID: " + id + ", Nome: " + name + ", Pontuação Total: " + totalPts;

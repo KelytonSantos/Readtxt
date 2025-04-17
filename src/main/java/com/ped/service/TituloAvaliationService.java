@@ -5,6 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 import com.ped.model.Candidato;
@@ -14,9 +15,9 @@ public class TituloAvaliationService {
     public TituloAvaliationService() {
     }
 
-    public void createAvaliationTitulo() {
+    public void createAvaliationTitulo(String path, Map<Integer, Candidato> candidatosMap) {
         try {
-            File arquivo = new File("/home/lucas/Downloads/tituloR.txt");
+            File arquivo = new File(path);
 
             Scanner scanner = new Scanner(arquivo);
             List<Candidato> candidatos = new ArrayList<>();
