@@ -48,8 +48,8 @@ public class Candidato {
         return ptsDout;
     }
 
-    public void setPtsDout(Float ptsDout) {
-        this.ptsDout = ptsDout;
+    public void setPtsDout(String ptsDout) {
+        this.ptsDout = Float.parseFloat(ptsDout.replaceAll(",", "."));
     }
 
     public Float getPtsMest() {
@@ -135,6 +135,13 @@ public class Candidato {
     @Override
     public String toString() {
         return "Posição: " + position + " | ID: " + id + ", Nome: " + name + ", Pontuação Total: " + totalPts;
+    }
+
+    public String printProvaAvaliation() {
+
+        return "lingua portuguesa: " + ptsLpfs + " raciocinio logico matematico: " + ptsRlfs +
+                " conhecimento pedagógico: " + ptsCpde + " conhecimento especifico: " + ptsCepe + " TOTAL PROVA: "
+                + totalPtsProva;
     }
 
 }

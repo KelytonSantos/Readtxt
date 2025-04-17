@@ -8,6 +8,7 @@ import java.util.Scanner;
 import com.ped.model.Candidato;
 
 public class ProvaAvaliationService {
+
     public ProvaAvaliationService() {
     }
 
@@ -15,6 +16,10 @@ public class ProvaAvaliationService {
         try {
             File arquivo = new File(path);
             Scanner scanner = new Scanner(arquivo);
+
+            if (scanner.hasNextLine()) {
+                scanner.nextLine();
+            }
 
             while (scanner.hasNextLine()) {
                 String linha = scanner.nextLine();
@@ -49,6 +54,7 @@ public class ProvaAvaliationService {
                         candidato.setPtsCepe(cepe);
                         candidato.setTotalPtsProva(provaPts);
                     }
+                    candidatosMap.put(id, candidato);
                 }
 
             }

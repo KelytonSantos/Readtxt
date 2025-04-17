@@ -1,10 +1,7 @@
 package com.ped.service;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -20,8 +17,7 @@ public class TituloAvaliationService {
             File arquivo = new File(path);
 
             Scanner scanner = new Scanner(arquivo);
-            List<Candidato> candidatos = new ArrayList<>();
-            // pula a primeira linha (cabeçalho)
+
             if (scanner.hasNextLine()) {
                 scanner.nextLine();
             }
@@ -43,33 +39,27 @@ public class TituloAvaliationService {
                     String firstName = colunas[1];
                     String secondName = colunas[2];
                     String lastName = colunas[3];
-                    String id = colunas[0];
+                    Integer id = Integer.parseInt(colunas[0]);
 
                     String name = firstName + " " + secondName + " " + lastName;
 
-                    /*
-                     * System.out.println("id: " + id + " nome: " + name + " doutorado: " + dout +
-                     * " mestrado: " + mest
-                     * + " especializacao: " + esp + " total: " + pontos);
-                     */
+                    Candidato candidato = candidatosMap.getOrDefault(id, new Candidato());
 
-                    Candidato candidato = new Candidato(id, name, dout, mest, esp, pontos);
-                    candidatos.add(candidato);
+                    boolean exist = candidatosMap.containsKey(id);
+                    if (!exist) {
+                        candidato.setId(id);
+                        candidato.setName(name);
+                    } else {
+                        candidato.setPtsEsp(esp);
+                        candidato.setPtsMest(mest);
+                        candidato.setPtsDout(dout);
+                        candidato.setTotalPtsTitulo(pontos);
+                    }
+
                 }
 
             }
 
-            candidatos.sort((c1, c2) -> Float.compare(c2.getTotalPts(), c1.getTotalPts()));
-
-            for (int i = 0; i < candidatos.size(); i++) {
-                candidatos.get(i).setPosition(i + 1); // A posição começa de 1
-            }
-
-            FileWriter writer = new FileWriter("/home/lucas/Downloads/saida.txt");
-            for (Candidato c : candidatos) {
-                writer.write(c.toString() + "\n");
-            }
-            writer.close();
             scanner.close();
 
         } catch (IOException e) {
@@ -77,3 +67,16 @@ public class TituloAvaliationService {
         }
     }
 }
+
+/*
+ * for (int i = 0; i < candidatos.size(); i++) {
+ * candidatos.get(i).setPosition(i + 1); // A posição começa de 1
+ * }*
+ * 
+ * FileWriter writer = new FileWriter("/home/lucas/Downloads/saida.txt");
+ * for (Candidato c : candidatos) {
+ * writer.write(c.toString() + "\n");
+ * }
+ * writer.close();
+ * 
+ */
