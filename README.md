@@ -36,7 +36,7 @@ src/
     │       ├── service/
     │       │   ├── ProvaAvaliationService.java  # Responsável por ler/processar notas da prova
     │       │   └── TituloAvaliationService.java # Responsável por ler/processar notas de títulos
-    │       └── Main.java                       # Ponto de entrada da aplicação
+    │       └── Main.java
     └──
 
 ```
