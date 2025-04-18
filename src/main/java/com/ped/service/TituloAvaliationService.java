@@ -71,16 +71,3 @@ public class TituloAvaliationService {
         }
     }
 }
-
-/*
- * for (int i = 0; i < candidatos.size(); i++) {
- * candidatos.get(i).setPosition(i + 1); // A posição começa de 1
- * }*
- * 
- * FileWriter writer = new FileWriter("/home/lucas/Downloads/saida.txt");
- * for (Candidato c : candidatos) {
- * writer.write(c.toString() + "\n");
- * }
- * writer.close();
- * 
- */
