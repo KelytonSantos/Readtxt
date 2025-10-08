@@ -4,7 +4,7 @@ Aplicação Java criada para **prever a posição de um candidato em um concurso
 
 ## 🧠 Contexto
 
-Esse projeto surgiu de um caso real: minha mãe queria saber sua colocação antes do resultado oficial do concurso ser divulgado. Para isso, criei essa aplicação que:
+Esse projeto surgiu de um caso real: Como saber su aposição em um concurso com base em pdf's?
 
 1. Recebe dois arquivos `.txt` (convertidos manualmente de PDFs);
 2. Lê os dados e extrai as notas de cada candidato;
